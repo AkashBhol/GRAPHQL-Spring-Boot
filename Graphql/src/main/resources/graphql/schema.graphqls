@@ -1,0 +1,30 @@
+# Define the Author type
+type Author {
+    id: ID!
+    firstName: String!
+    lastName: String!
+    status: String!
+}
+
+# Define the Book type
+type Book {
+    id: ID!
+    name: String!
+    pageCount: String!
+    authorId: ID!
+    author: Author
+}
+
+# Define Queries for other thing
+type Query {
+    bookById(id: ID!): Book
+    allAuthors: [Author]
+    allBooks: [Book]
+    authorsByStatus(status: String!): [Author]
+}
+
+# Define Mutations for creation
+type Mutation {
+    createAuthor(id: ID!, firstName: String!, lastName: String!, status: String!): Author
+    createBook(id: ID!, name: String!, pageCount: String!, authorId: ID!): Book
+}
